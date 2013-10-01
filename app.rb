@@ -46,7 +46,7 @@ module Name
 
     def self.initialize_board
       @board = Board.new
-      board.set_dimensions(9,100)
+      board.set_dimensions(35,100)
       board.set_initial_state(DeadCell)
       self.set_pattern
       # debugger
@@ -54,10 +54,58 @@ module Name
     end
 
     def self.set_pattern
-      self.board.insert_cell(3,50, AliveCell)
-      self.board.insert_cell(4,50, AliveCell)
-      self.board.insert_cell(5,50, AliveCell)
-      self.board.insert_cell(6,50, AliveCell)
+      self.spaceship(30, 40)
+      self.glider(30, 90)
+      self.long_vertical(10,10)
+      self.podium(15, 15)
+      self.rotated_L(20,15)
+      self.spaceship(20, 60)
+      self.spaceship(10, 40)
+      self.spaceship(10, 30)
+      self.spaceship(10, 25)
+      self.spaceship(20, 80)
+      self.spaceship(30, 50)
+    end
+
+    def self.spaceship(row, column)
+      self.board.insert_cell(row,column)
+      self.board.insert_cell(row,column + 3)
+      self.board.insert_cell(row + 1,column - 1)
+      self.board.insert_cell(row + 2,column - 1)
+      self.board.insert_cell(row + 3,column - 1)
+      self.board.insert_cell(row + 3,column)
+      self.board.insert_cell(row + 3,column + 1)
+      self.board.insert_cell(row + 3,column + 2)
+      self.board.insert_cell(row + 2,column + 3)
+    end
+
+    def self.glider(row, column)
+      self.board.insert_cell(row,column + 1)
+      self.board.insert_cell(row,column + 2)
+      self.board.insert_cell(row,column)
+      self.board.insert_cell(row + 1,column)
+      self.board.insert_cell(row + 2,column + 2)
+    end
+
+    def self.long_vertical(row,column)
+      self.board.insert_cell(row,column, AliveCell)
+      self.board.insert_cell(row + 1,column, AliveCell)
+      self.board.insert_cell(row + 2,column, AliveCell)
+      self.board.insert_cell(row + 3,column, AliveCell)
+    end
+
+    def self.podium(row, column)
+      self.board.insert_cell(row,column, AliveCell)
+      self.board.insert_cell(row + 1,column + 1, AliveCell)
+      self.board.insert_cell(row + 1,column - 1, AliveCell)
+      self.board.insert_cell(row + 1,column, AliveCell)
+    end
+
+    def self.rotated_L(row, column)
+      self.board.insert_cell(row,column, AliveCell)
+      self.board.insert_cell(row + 1,column, AliveCell)
+      self.board.insert_cell(row,column + 1, AliveCell)
+      self.board.insert_cell(row,column + 2, AliveCell)
     end
 
     #helpers

@@ -186,7 +186,7 @@ class Board
     end
   end
 
-  def insert_cell(i,j,cell_type)
+  def insert_cell(i,j,cell_type = AliveCell)
     cell = set_state_of_cell(i,j,cell_type)
     self.set_cell(i,j,cell)
   end
