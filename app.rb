@@ -46,9 +46,18 @@ module Name
 
     def self.initialize_board
       @board = Board.new
-      board.set_dimensions(10,100)
-      board.set_initial_state(Cell)
+      board.set_dimensions(9,100)
+      board.set_initial_state(DeadCell)
+      self.set_pattern
+      # debugger
       self.game = Game.new(board)
+    end
+
+    def self.set_pattern
+      self.board.insert_cell(3,50, AliveCell)
+      self.board.insert_cell(4,50, AliveCell)
+      self.board.insert_cell(5,50, AliveCell)
+      self.board.insert_cell(6,50, AliveCell)
     end
 
     #helpers

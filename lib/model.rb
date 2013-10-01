@@ -1,4 +1,3 @@
-require 'debugger'
 class Game
 
   attr_accessor :board
@@ -59,14 +58,24 @@ class Cell
 
   def update_state(board)
     alive_neighbors = self.count_alive_neighbors(board)
-    state = case alive_neighbors
-      when 0..1
-        false
-      when 2..3
-        true
-      when 4..8
-        false
-      end
+    if self.alive?
+      state = case alive_neighbors
+        when 0..1
+          false
+        when 2..3
+          true
+        when 4..8
+          false
+        end
+    else
+      state = case alive_neighbors
+        when 3
+          true
+        else
+          false
+        end
+    end
+    return state
   end
 
   def count_alive_neighbors(board)
@@ -134,6 +143,15 @@ class DeadCell < Cell
 
 end
 
+class AliveCell < Cell
+
+  def set_state
+    self.alive = true
+  end
+
+end
+
+
 class Board
 
   attr_accessor :state, :rows, :columns
@@ -149,6 +167,10 @@ class Board
     self.state[row][column]
   end
 
+  def set_cell(row,column, cell)
+    self.state[row][column] = cell 
+  end
+
   def set_dimensions(rows, columns = 5)
     self.rows = rows
     self.columns = columns
@@ -162,6 +184,11 @@ class Board
       end
       self.state << row
     end
+  end
+
+  def insert_cell(i,j,cell_type)
+    cell = set_state_of_cell(i,j,cell_type)
+    self.set_cell(i,j,cell)
   end
 
   def set_state_of_cell(i,j, cell_type)
@@ -203,7 +230,6 @@ class Board
     new_board.set_initial_state(DeadCell)
     self.state.each_with_index do |row, i|
       row.each_with_index do |cell, j|
-        # debugger
         new_board.state[i][j].alive = cell.update_state(self)
       end
     end
