@@ -1,5 +1,3 @@
-require 'sass'
-
 module Sass::Script::Functions
   def getRandomColor(as_str = true)
     if as_str
