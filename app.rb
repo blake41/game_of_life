@@ -49,7 +49,6 @@ module Name
       board.set_dimensions(35,100)
       board.set_initial_state(DeadCell)
       self.set_pattern
-      # debugger
       self.game = Game.new(board)
     end
 
@@ -112,6 +111,9 @@ module Name
     helpers do
       def partial(file_name)
         erb file_name, :layout => false
+      end
+      def h(text)
+        Rack::Utils.escape_html(text)
       end
     end
 

@@ -1,4 +1,12 @@
-pre {
-  padding: 0px;
-  margin: 0px;
+td {
+  padding: 7px;
+  background-color:black;
+}
+
+.dead {
+  background-color:white;
+}
+
+table {
+  border-collapse:collapse;
 }

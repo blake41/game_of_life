@@ -41,9 +41,9 @@ class Cell
 
   def display
     if self.alive?
-      "o"
+      "<td></td>"
     else
-      "."
+      "<td class='dead'></td>"
     end
   end
 
@@ -210,11 +210,7 @@ class Board
   end
 
   def display_array
-    self.state.collect do |row|
-      row.collect do |element|
-        element.display
-      end
-    end
+    self.state
   end
 
 

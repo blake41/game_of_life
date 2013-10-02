@@ -1,3 +1,9 @@
-<% @display.each do |row| %>
-  <pre><%= row.join("") %></pre>
-<% end %>
+<table>
+  <% @display.each do |row| %>
+    <tr>
+      <% row.each do |cell| %>
+        <%= cell.display %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
