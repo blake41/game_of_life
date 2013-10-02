@@ -1,4 +1,6 @@
-require_relative "game_of_life_solution"
+require_relative "../lib/board.rb"
+require_relative "../lib/game.rb"
+require_relative "../lib/cell.rb"
 
 describe "game" do
   before(:each) do
