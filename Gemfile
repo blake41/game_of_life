@@ -6,8 +6,10 @@ gem "sqlite3"
 gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
-gem 'debugger'
+gem 'sass'
+
 group :development do
+  gem 'debugger'
   gem "shotgun"
   gem "tux"
 end

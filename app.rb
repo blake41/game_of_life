@@ -32,6 +32,10 @@ module Name
       erb :game_of_life
     end
 
+    get '/styles.css' do
+      scss :mystyle
+    end
+
     def self.game
       @game
     end
