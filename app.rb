@@ -20,7 +20,7 @@ module Name
     #filters
 
     #routes
-    get '/game_of_life' do
+    get '/' do
       if self.class.board.nil?
         puts "initializing board"
         self.class.initialize_board
@@ -46,7 +46,7 @@ module Name
 
     def self.initialize_board
       @board = Board.new
-      board.set_dimensions(35,100)
+      board.set_dimensions(35,150)
       board.set_initial_state(DeadCell)
       self.set_pattern
       self.game = Game.new(board)
@@ -64,6 +64,35 @@ module Name
       self.spaceship(10, 25)
       self.spaceship(20, 80)
       self.spaceship(30, 50)
+      self.podium(15, 5)
+      self.podium(15, 25)
+      self.podium(15, 35)
+      self.podium(15, 45)
+      self.podium(15, 55)
+      self.podium(25, 5)
+      self.podium(25, 25)
+      self.podium(25, 35)
+      self.podium(25, 45)
+      self.podium(25, 55)
+      self.podium(15, 65)
+      self.podium(15, 75)
+      self.podium(15, 85)
+      self.podium(15, 95)
+      self.podium(15, 50)
+      self.podium(25, 65)
+      self.podium(25, 75)
+      self.podium(25, 85)
+      self.podium(25, 95)
+      self.podium(25, 50)
+      self.podium(15, 115)
+      self.podium(15, 125)
+      self.podium(15, 135)
+      self.podium(15, 145)
+      self.podium(25, 115)
+      self.podium(25, 125)
+      self.podium(25, 135)
+      self.podium(25, 145)
+      self.podium(25, 105)
     end
 
     def self.spaceship(row, column)
