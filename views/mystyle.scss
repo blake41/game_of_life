@@ -1,6 +1,8 @@
 td {
   padding: 7px;
   background-color: getRandomColor();
+  -webkit-border-radius: 10px 10px;
+          border-radius: 10px/10px;
 }
 
 .dead {
