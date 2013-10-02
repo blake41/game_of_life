@@ -1,23 +1,18 @@
-#ratpack
+#Sinatra Game of Life
 
-a simple boilerplate for creating production-ready sinatra apps that use activerecord and sqlite
-
-twitterbootstrap using html and css are included.
-
-if ya want haml and sass, be on the look for classy.
+an implementation of [Conway's Game of Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life) using ruby in [Sinatra](http://www.sinatrarb.com/)
 
 ## Up and running
 1. `bundle install`
-2. `shotgun`
-3. visit `localhost:9393`
+2. `rackup`
+3. visit `localhost:9292`
+
+**NOTE: does not work with `shotgun`
 
 ## Gemfile
 - [sinatra](http://www.sinatrarb.com/): web framework
-- [sqlite3](https://github.com/luislavena/sqlite3-ruby): Database
-- [activerecord](http://guides.rubyonrails.org/active_record_querying.html): ORM
-- [sinatra-activerecord](https://github.com/bmizerany/sinatra-activerecord)
-- [rake](http://rake.rubyforge.org/)
+- [sass](http://sass-lang.com/): fly stylez
 
 ### Development
-   * [shotgun](https://github.com/rtomayko/shotgun)
-   * [tux](http://tagaholic.me/2011/04/10/tux-a-sinatra-console.html)
+   * [tux](http://tagaholic.me/2011/04/10/tux-a-sinatra-console.html): console
+   * [debugger](http://rubygems.org/gems/debugger): debuggin'
